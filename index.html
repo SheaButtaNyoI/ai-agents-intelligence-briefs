@@ -269,6 +269,12 @@
   .buy-section h2 { margin-bottom: 12px; }
   .buy-section p { color: var(--muted); margin-bottom: 24px; }
   .payment-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .prefill-note {
+    font-size: 13px;
+    color: var(--green);
+    margin-top: 12px;
+    font-weight: 500;
+  }
   @media (max-width: 600px) {
     h1 { font-size: 32px; }
     .price { font-size: 44px; }
@@ -378,6 +384,7 @@
           <a href="https://www.paypal.com/paypalme/buttasbest/297" class="cta-paypal" target="_blank" rel="noopener">Pay $297 with PayPal</a>
           <a href="https://buy.stripe.com/test_placeholder_replace_with_your_link" class="cta-buy" target="_blank" rel="noopener">Pay $297 with Stripe</a>
         </div>
+        <p class="prefill-note">PayPal link has the $297 amount pre-filled.</p>
         <p class="form-note" style="margin-top: 16px;">Or <a href="#request" style="color: var(--accent); text-decoration: none;">submit a request</a> and we'll send a payment link.</p>
       </div>
     </section>
