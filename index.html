@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Agents Intelligence Briefs — $497</title>
+<style>
+  :root {
+    --bg: #0c0e14;
+    --surface: #161922;
+    --surface-hover: #1c2030;
+    --border: #2a2f3e;
+    --text: #f0f2f5;
+    --muted: #a0a6b0;
+    --accent: #5b8cff;
+    --accent-soft: rgba(91, 140, 255, 0.12);
+    --green: #3dd68c;
+    --green-soft: rgba(61, 214, 140, 0.12);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container { max-width: 760px; margin: 0 auto; padding: 48px 24px 80px; }
+  .hero {
+    text-align: center;
+    padding-bottom: 48px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 48px;
+  }
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    margin-bottom: 20px;
+  }
+  h1 {
+    font-size: 42px;
+    font-weight: 700;
+    letter-spacing: -0.8px;
+    line-height: 1.15;
+    margin-bottom: 16px;
+  }
+  .price-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 8px;
+    margin: 12px 0 8px;
+  }
+  .price {
+    font-size: 56px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    color: var(--green);
+    line-height: 1;
+  }
+  .price-label {
+    font-size: 18px;
+    color: var(--muted);
+    font-weight: 500;
+  }
+  .subtitle {
+    font-size: 18px;
+    color: var(--muted);
+    max-width: 520px;
+    margin: 16px auto 32px;
+  }
+  .cta {
+    display: inline-block;
+    background: var(--accent);
+    color: white;
+    font-weight: 600;
+    font-size: 15px;
+    padding: 14px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: transform 0.1s, background 0.15s;
+  }
+  .cta:hover { background: #6b98ff; transform: translateY(-1px); }
+  .cta-secondary {
+    display: inline-block;
+    margin-left: 12px;
+    color: var(--muted);
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 14px 16px;
+  }
+  .cta-secondary:hover { color: var(--text); }
+  section { margin-bottom: 56px; }
+  h2 {
+    font-size: 20px;
+    font-weight: 650;
+    margin-bottom: 20px;
+    letter-spacing: -0.2px;
+  }
+  .grid { display: grid; gap: 12px; }
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px 20px;
+    transition: border-color 0.15s, background 0.15s;
+  }
+  .card:hover { border-color: #3a4050; background: var(--surface-hover); }
+  .card h3 { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+  .card p { color: var(--muted); font-size: 14px; }
+  .topics {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 24px;
+  }
+  .topics li {
+    list-style: none;
+    color: var(--muted);
+    font-size: 14.5px;
+    padding-left: 18px;
+    position: relative;
+  }
+  .topics li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+  .sample {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px;
+  }
+  .sample-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  .sample h3 { font-size: 16px; font-weight: 600; }
+  .sample-tag {
+    font-size: 11px;
+    font-weight: 600;
+    background: var(--green-soft);
+    color: var(--green);
+    padding: 4px 10px;
+    border-radius: 999px;
+  }
+  .sample p { color: var(--muted); font-size: 14.5px; margin-bottom: 10px; }
+  .sample .label { color: var(--text); font-weight: 600; }
+  .steps { counter-reset: step; }
+  .step { display: flex; gap: 16px; margin-bottom: 20px; }
+  .step-num {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--accent-soft);
+    color: var(--accent);
+    font-size: 13px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .step p { color: var(--muted); font-size: 15px; }
+  footer {
+    text-align: center;
+    margin-top: 40px;
+    color: #6b7280;
+    font-size: 13px;
+  }
+  .contact-form {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px;
+  }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-group { margin-bottom: 16px; }
+  .form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--text);
+  }
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 14px;
+    color: var(--text);
+    font-size: 14.5px;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.15s;
+  }
+  .form-group input:focus,
+  .form-group textarea:focus { border-color: var(--accent); }
+  .form-group textarea { resize: vertical; }
+  .contact-form .cta { width: 100%; text-align: center; margin-top: 8px; }
+  .form-note {
+    text-align: center;
+    color: var(--muted);
+    font-size: 13px;
+    margin-top: 14px;
+  }
+  @media (max-width: 600px) {
+    h1 { font-size: 32px; }
+    .price { font-size: 44px; }
+    .topics { grid-template-columns: 1fr; }
+    .cta-secondary { display: block; margin: 12px 0 0; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <header class="hero">
+      <div class="badge">FIXED SCOPE · 48-HOUR DELIVERY</div>
+      <h1>AI Agents<br>Intelligence Briefs</h1>
+      <div class="price-row">
+        <div class="price">$497</div>
+        <div class="price-label">per brief</div>
+      </div>
+      <p class="subtitle">Concise, challenge-tested competitive and landscape briefs on multi-agent frameworks, agent platforms, and the agentic AI stack.</p>
+      <div>
+        <a href="#request" class="cta">Request a Brief</a>
+        <a href="#sample" class="cta-secondary">View sample →</a>
+      </div>
+    </header>
+
+    <section>
+      <h2>What You Receive</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Direct Answer</h3>
+          <p>Clear recommendation or landscape summary. No filler, no hedging.</p>
+        </div>
+        <div class="card">
+          <h3>Key Evidence</h3>
+          <p>Primary sources, adoption signals, pricing models, and production readiness data.</p>
+        </div>
+        <div class="card">
+          <h3>Strongest Counterpoints</h3>
+          <p>Where consensus is weak or vendor claims are overstated.</p>
+        </div>
+        <div class="card">
+          <h3>Residual Uncertainties</h3>
+          <p>What remains opaque or likely to shift in the next 3–6 months.</p>
+        </div>
+        <div class="card">
+          <h3>Actionable Recommendations</h3>
+          <p>3–5 concrete next steps matched to your use case.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Typical Topics</h2>
+      <ul class="topics">
+        <li>Multi-agent framework comparison</li>
+        <li>Agent platform landscape & pricing</li>
+        <li>Voice agent infrastructure</li>
+        <li>AI SDR / sales agent tools</li>
+        <li>Observability & agent ops</li>
+        <li>Enterprise agent shortlists</li>
+      </ul>
+    </section>
+
+    <section id="sample">
+      <h2>Sample Brief</h2>
+      <div class="sample">
+        <div class="sample-header">
+          <h3>Multi-Agent Frameworks Landscape — October 2026</h3>
+          <div class="sample-tag">SAMPLE</div>
+        </div>
+        <p><span class="label">Direct Answer:</span> LangGraph leads for production-grade stateful systems. CrewAI leads for rapid role-based prototyping. AutoGen is in maintenance mode.</p>
+        <p><span class="label">Key Evidence:</span> LangGraph shows the strongest production footprint and ~71M monthly installs. CrewAI is strongest for demos and business workflows.</p>
+        <p><span class="label">Recommendations:</span> Default to LangGraph for auditable production systems. Use CrewAI for fast internal prototypes. Avoid new AutoGen builds.</p>
+        <p style="margin-top: 16px; font-size: 13.5px;">Full sample PDF available on request.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>How It Works</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <p>Send a clear topic or decision question in the AI agents space.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <p>The investigative cell researches, challenges claims, and synthesizes the evidence.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <p>You receive a 5–8 page decision-ready brief within 48 hours.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <p>Fixed price. Fixed scope. No open-ended consulting.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="request">
+      <h2>Request a Brief</h2>
+      <form class="contact-form" id="brief-form" onsubmit="return handleSubmit(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required placeholder="Your name">
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required placeholder="you@company.com">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="topic">Topic / Question</label>
+          <input type="text" id="topic" name="topic" required placeholder="e.g. LangGraph vs CrewAI for production systems">
+        </div>
+        <div class="form-group">
+          <label for="message">Additional Context (optional)</label>
+          <textarea id="message" name="message" rows="4" placeholder="Any specific constraints, use case, or details..."></textarea>
+        </div>
+        <button type="submit" class="cta">Submit Request — $497</button>
+        <p class="form-note">Or email directly: <a href="mailto:thehandofretribution@outlook.com" style="color: var(--accent); text-decoration: none;">thehandofretribution@outlook.com</a></p>
+      </form>
+    </section>
+
+    <footer>
+      Produced by a multi-agent investigative cell.<br>
+      Fixed-scope. Source-linked. Challenge-tested.<br>
+      Contact: <a href="mailto:thehandofretribution@outlook.com" style="color: var(--accent); text-decoration: none;">thehandofretribution@outlook.com</a>
+    </footer>
+
+    <script>
+      function handleSubmit(e) {
+        e.preventDefault();
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const topic = document.getElementById('topic').value;
+        const message = document.getElementById('message').value;
+
+        const subject = encodeURIComponent(`AI Agents Intelligence Brief Request: ${topic}`);
+        const body = encodeURIComponent(
+          `Name: ${name}\n` +
+          `Email: ${email}\n` +
+          `Topic: ${topic}\n\n` +
+          `Additional Context:\n${message || '(none)'}\n\n` +
+          `---\nSent from AI Agents Intelligence Briefs landing page`
+        );
+
+        window.location.href = `mailto:thehandofretribution@outlook.com?subject=${subject}&body=${body}`;
+        return false;
+      }
+    </script>
+  </div>
+</body>
+</html>
