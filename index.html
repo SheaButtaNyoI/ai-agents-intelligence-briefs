@@ -89,6 +89,19 @@
     transition: transform 0.1s, background 0.15s;
   }
   .cta:hover { background: #6b98ff; transform: translateY(-1px); }
+  .cta-buy {
+    display: inline-block;
+    background: var(--green);
+    color: #0c0e14;
+    font-weight: 700;
+    font-size: 15px;
+    padding: 14px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: transform 0.1s, background 0.15s;
+    margin-right: 12px;
+  }
+  .cta-buy:hover { background: #4de09a; transform: translateY(-1px); }
   .cta-secondary {
     display: inline-block;
     margin-left: 12px;
@@ -234,11 +247,21 @@
     font-size: 13px;
     margin-top: 14px;
   }
+  .buy-section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 32px;
+    text-align: center;
+  }
+  .buy-section h2 { margin-bottom: 12px; }
+  .buy-section p { color: var(--muted); margin-bottom: 24px; }
   @media (max-width: 600px) {
     h1 { font-size: 32px; }
     .price { font-size: 44px; }
     .topics { grid-template-columns: 1fr; }
     .cta-secondary { display: block; margin: 12px 0 0; }
+    .cta-buy { display: block; margin: 0 0 12px; }
     .form-row { grid-template-columns: 1fr; }
   }
 </style>
@@ -254,7 +277,7 @@
       </div>
       <p class="subtitle">Concise, challenge-tested competitive and landscape briefs on multi-agent frameworks, agent platforms, and the agentic AI stack.</p>
       <div>
-        <a href="#request" class="cta">Request a Brief</a>
+        <a href="#buy" class="cta-buy">Buy Now — $297</a>
         <a href="#sample" class="cta-secondary">View sample →</a>
       </div>
     </header>
@@ -330,6 +353,15 @@
           <div class="step-num">4</div>
           <p>Fixed price. Fixed scope. No open-ended consulting.</p>
         </div>
+      </div>
+    </section>
+
+    <section id="buy">
+      <div class="buy-section">
+        <h2>Buy a Brief — $297</h2>
+        <p>Pay now and submit your topic. Delivery within 48 hours.</p>
+        <a href="https://buy.stripe.com/test_placeholder_replace_with_your_link" class="cta-buy" target="_blank" rel="noopener">Pay $297 with Stripe</a>
+        <p class="form-note" style="margin-top: 16px;">Or <a href="#request" style="color: var(--accent); text-decoration: none;">submit a request</a> and we'll send a payment link.</p>
       </div>
     </section>
 
