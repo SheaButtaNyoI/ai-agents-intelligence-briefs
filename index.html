@@ -276,6 +276,39 @@
     margin-top: 12px;
     font-weight: 500;
   }
+  .traffic-ticker {
+    position: fixed;
+    bottom: 16px;
+    right: 16px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 6px 12px;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--muted);
+    letter-spacing: 0.2px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    opacity: 0.85;
+    transition: opacity 0.15s;
+  }
+  .traffic-ticker:hover { opacity: 1; }
+  .traffic-ticker .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--green);
+    flex-shrink: 0;
+  }
+  .traffic-ticker .count {
+    color: var(--text);
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+  }
   @media (max-width: 600px) {
     h1 { font-size: 32px; }
     .price { font-size: 44px; }
@@ -284,6 +317,7 @@
     .cta-buy, .cta-paypal { display: block; margin: 0 0 12px; }
     .form-row { grid-template-columns: 1fr; }
     .payment-buttons { flex-direction: column; }
+    .traffic-ticker { bottom: 12px; right: 12px; font-size: 10px; padding: 5px 10px; }
   }
 </style>
 </head>
@@ -433,6 +467,11 @@
       Contact: <a href="mailto:thehandofretribution@outlook.com" style="color: var(--accent); text-decoration: none;">thehandofretribution@outlook.com</a>
     </footer>
 
+    <div class="traffic-ticker" id="traffic-ticker" aria-label="Page views">
+      <span class="dot"></span>
+      <span><span class="count" id="view-count">—</span> views</span>
+    </div>
+
     <script>
       function handleSubmit(e) {
         e.preventDefault();
@@ -453,6 +492,23 @@
         window.location.href = `mailto:thehandofretribution@outlook.com?subject=${subject}&body=${body}`;
         return false;
       }
+
+      // Subtle page-view ticker (CountAPI — free, no signup)
+      (async function() {
+        try {
+          const ns = 'ai-agents-intelligence-briefs';
+          const key = 'pageviews';
+          const res = await fetch(`https://api.countapi.xyz/hit/${ns}/${key}`);
+          const data = await res.json();
+          const el = document.getElementById('view-count');
+          if (el && data.value != null) {
+            el.textContent = data.value.toLocaleString();
+          }
+        } catch {
+          const el = document.getElementById('view-count');
+          if (el) el.textContent = '—';
+        }
+      })();
     </script>
   </div>
 </body>
