@@ -102,6 +102,18 @@
     margin-right: 12px;
   }
   .cta-buy:hover { background: #4de09a; transform: translateY(-1px); }
+  .cta-paypal {
+    display: inline-block;
+    background: #0070ba;
+    color: white;
+    font-weight: 700;
+    font-size: 15px;
+    padding: 14px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: transform 0.1s, background 0.15s;
+  }
+  .cta-paypal:hover { background: #005ea6; transform: translateY(-1px); }
   .cta-secondary {
     display: inline-block;
     margin-left: 12px;
@@ -256,13 +268,15 @@
   }
   .buy-section h2 { margin-bottom: 12px; }
   .buy-section p { color: var(--muted); margin-bottom: 24px; }
+  .payment-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
   @media (max-width: 600px) {
     h1 { font-size: 32px; }
     .price { font-size: 44px; }
     .topics { grid-template-columns: 1fr; }
     .cta-secondary { display: block; margin: 12px 0 0; }
-    .cta-buy { display: block; margin: 0 0 12px; }
+    .cta-buy, .cta-paypal { display: block; margin: 0 0 12px; }
     .form-row { grid-template-columns: 1fr; }
+    .payment-buttons { flex-direction: column; }
   }
 </style>
 </head>
@@ -360,7 +374,10 @@
       <div class="buy-section">
         <h2>Buy a Brief — $297</h2>
         <p>Pay now and submit your topic. Delivery within 48 hours.</p>
-        <a href="https://buy.stripe.com/test_placeholder_replace_with_your_link" class="cta-buy" target="_blank" rel="noopener">Pay $297 with Stripe</a>
+        <div class="payment-buttons">
+          <a href="https://www.paypal.com/paypalme/thehandofretribution/297" class="cta-paypal" target="_blank" rel="noopener">Pay $297 with PayPal</a>
+          <a href="https://buy.stripe.com/test_placeholder_replace_with_your_link" class="cta-buy" target="_blank" rel="noopener">Pay $297 with Stripe</a>
+        </div>
         <p class="form-note" style="margin-top: 16px;">Or <a href="#request" style="color: var(--accent); text-decoration: none;">submit a request</a> and we'll send a payment link.</p>
       </div>
     </section>
