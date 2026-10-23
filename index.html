@@ -162,6 +162,18 @@
   }
   .sample p { color: var(--muted); font-size: 14.5px; margin-bottom: 10px; }
   .sample .label { color: var(--text); font-weight: 600; }
+  .sample-download {
+    display: inline-block;
+    margin-top: 16px;
+    background: var(--accent);
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+  }
+  .sample-download:hover { background: #6b98ff; }
   .steps { counter-reset: step; }
   .step { display: flex; gap: 16px; margin-bottom: 20px; }
   .step-num {
@@ -295,7 +307,7 @@
         <p><span class="label">Direct Answer:</span> LangGraph leads for production-grade stateful systems. CrewAI leads for rapid role-based prototyping. AutoGen is in maintenance mode.</p>
         <p><span class="label">Key Evidence:</span> LangGraph shows the strongest production footprint and ~71M monthly installs. CrewAI is strongest for demos and business workflows.</p>
         <p><span class="label">Recommendations:</span> Default to LangGraph for auditable production systems. Use CrewAI for fast internal prototypes. Avoid new AutoGen builds.</p>
-        <p style="margin-top: 16px; font-size: 13.5px;">Full sample PDF available on request.</p>
+        <a href="AI_Agents_Intelligence_Brief_Sample.pdf" class="sample-download" download>Download Full Sample PDF</a>
       </div>
     </section>
 
