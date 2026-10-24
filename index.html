@@ -472,6 +472,10 @@
       <span><span class="count" id="view-count">—</span> views</span>
     </div>
 
+    <!-- GoatCounter tracking (privacy-friendly, free dashboard) -->
+    <script data-goatcounter="https://ai-agents-intelligence-briefs.goatcounter.com/count"
+            async src="//gc.zgo.at/count.js"></script>
+
     <script>
       function handleSubmit(e) {
         e.preventDefault();
@@ -493,21 +497,14 @@
         return false;
       }
 
-      // Subtle page-view ticker (CountAPI — free, no signup)
-      (async function() {
-        try {
-          const ns = 'ai-agents-intelligence-briefs';
-          const key = 'pageviews';
-          const res = await fetch(`https://api.countapi.xyz/hit/${ns}/${key}`);
-          const data = await res.json();
-          const el = document.getElementById('view-count');
-          if (el && data.value != null) {
-            el.textContent = data.value.toLocaleString();
-          }
-        } catch {
-          const el = document.getElementById('view-count');
-          if (el) el.textContent = '—';
-        }
+      // Display a local running count (GoatCounter handles the real stats + dashboard)
+      (function() {
+        const key = 'aib-pageviews';
+        let n = parseInt(localStorage.getItem(key) || '0', 10);
+        n += 1;
+        localStorage.setItem(key, String(n));
+        const el = document.getElementById('view-count');
+        if (el) el.textContent = n.toLocaleString();
       })();
     </script>
   </div>
