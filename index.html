@@ -276,6 +276,30 @@
     margin-top: 12px;
     font-weight: 500;
   }
+  .who-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .faq-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-bottom: 10px;
+  }
+  .faq-item h3 { font-size: 15px; font-weight: 600; margin-bottom: 6px; }
+  .faq-item p { color: var(--muted); font-size: 14px; }
+  .method-note {
+    background: var(--accent-soft);
+    border: 1px solid rgba(91, 140, 255, 0.25);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-bottom: 32px;
+    font-size: 14.5px;
+    color: var(--text);
+  }
+  .method-note strong { color: var(--accent); }
   .traffic-ticker {
     position: fixed;
     bottom: 16px;
@@ -313,6 +337,7 @@
     h1 { font-size: 32px; }
     .price { font-size: 44px; }
     .topics { grid-template-columns: 1fr; }
+    .who-grid { grid-template-columns: 1fr; }
     .cta-secondary { display: block; margin: 12px 0 0; }
     .cta-buy, .cta-paypal { display: block; margin: 0 0 12px; }
     .form-row { grid-template-columns: 1fr; }
@@ -325,17 +350,46 @@
   <div class="container">
     <header class="hero">
       <div class="badge">FIXED SCOPE · 48-HOUR DELIVERY</div>
-      <h1>AI Agents<br>Intelligence Briefs</h1>
+      <h1>Decision-ready briefs<br>on AI agents</h1>
       <div class="price-row">
         <div class="price">$297</div>
         <div class="price-label">per brief</div>
       </div>
-      <p class="subtitle">Concise, challenge-tested competitive and landscape briefs on multi-agent frameworks, agent platforms, and the agentic AI stack.</p>
+      <p class="subtitle">Know which frameworks, platforms, and tools actually hold up — with evidence, counterpoints, and clear next steps. Not another open-ended research project.</p>
       <div>
         <a href="#buy" class="cta-buy">Buy Now — $297</a>
-        <a href="#sample" class="cta-secondary">View samples →</a>
+        <a href="#sample" class="cta-secondary">View free samples →</a>
       </div>
     </header>
+
+    <div class="method-note">
+      <strong>How the briefs are built:</strong> A multi-agent investigative cell researches primary sources, stress-tests claims, and synthesizes only what is decision-relevant. Every finding is source-linked. No vendor copy, no filler.
+    </div>
+
+    <section id="sample">
+      <h2>See Exactly What You Get</h2>
+      <div class="sample">
+        <div class="sample-header">
+          <h3>Multi-Agent Frameworks Landscape — October 2026</h3>
+          <div class="sample-tag">SAMPLE</div>
+        </div>
+        <p><span class="label">Direct Answer:</span> LangGraph leads for production-grade stateful systems. CrewAI leads for rapid role-based prototyping. AutoGen is in maintenance mode.</p>
+        <p><span class="label">Key Evidence:</span> LangGraph shows the strongest production footprint and ~71M monthly installs. CrewAI is strongest for demos and business workflows.</p>
+        <p><span class="label">Recommendations:</span> Default to LangGraph for auditable production systems. Use CrewAI for fast internal prototypes. Avoid new AutoGen builds.</p>
+        <a href="AI_Agents_Intelligence_Brief_Sample.pdf" class="sample-download" download>Download Full Sample PDF</a>
+      </div>
+      <div class="sample">
+        <div class="sample-header">
+          <h3>AI and 2027 — October 2026</h3>
+          <div class="sample-tag">SAMPLE</div>
+        </div>
+        <p><span class="label">Direct Answer:</span> AI timelines cluster in 2027–2030 with wide dispersion. Labor effects are descriptive so far; policy deadlines are concrete.</p>
+        <p><span class="label">Key Evidence:</span> METR task horizons, Stanford/Yale labor studies, EU AI Act delays, California and Colorado laws, and updated lab safety frameworks.</p>
+        <p><span class="label">Recommendations:</span> Review quarterly against capability and labor signposts. Track EU high-risk and sandbox dates. Prepare for state-level AI rules.</p>
+        <p class="form-note" style="margin-top: 8px; text-align: left;">Full 8-page example. Public data only.</p>
+        <a href="ai-and-2027.pdf" class="sample-download" download>Download Full Sample PDF</a>
+      </div>
+    </section>
 
     <section>
       <h2>What You Receive</h2>
@@ -364,6 +418,28 @@
     </section>
 
     <section>
+      <h2>Who It's For</h2>
+      <div class="who-grid">
+        <div class="card">
+          <h3>Founders & product leads</h3>
+          <p>Choosing a framework or platform before committing engineering time.</p>
+        </div>
+        <div class="card">
+          <h3>Consultants & agencies</h3>
+          <p>Needing a client-ready brief without days of manual research.</p>
+        </div>
+        <div class="card">
+          <h3>Investors & operators</h3>
+          <p>Evaluating agent stacks, vendor claims, or near-term market shifts.</p>
+        </div>
+        <div class="card">
+          <h3>Enterprise teams</h3>
+          <p>Building shortlists or assessing production readiness of agent tools.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
       <h2>Typical Topics</h2>
       <ul class="topics">
         <li>Multi-agent framework comparison</li>
@@ -373,31 +449,6 @@
         <li>Observability & agent ops</li>
         <li>Enterprise agent shortlists</li>
       </ul>
-    </section>
-
-    <section id="sample">
-      <h2>Sample Briefs</h2>
-      <div class="sample">
-        <div class="sample-header">
-          <h3>Multi-Agent Frameworks Landscape — October 2026</h3>
-          <div class="sample-tag">SAMPLE</div>
-        </div>
-        <p><span class="label">Direct Answer:</span> LangGraph leads for production-grade stateful systems. CrewAI leads for rapid role-based prototyping. AutoGen is in maintenance mode.</p>
-        <p><span class="label">Key Evidence:</span> LangGraph shows the strongest production footprint and ~71M monthly installs. CrewAI is strongest for demos and business workflows.</p>
-        <p><span class="label">Recommendations:</span> Default to LangGraph for auditable production systems. Use CrewAI for fast internal prototypes. Avoid new AutoGen builds.</p>
-        <a href="AI_Agents_Intelligence_Brief_Sample.pdf" class="sample-download" download>Download Full Sample PDF</a>
-      </div>
-      <div class="sample">
-        <div class="sample-header">
-          <h3>AI and 2027 — October 2026</h3>
-          <div class="sample-tag">SAMPLE</div>
-        </div>
-        <p><span class="label">Direct Answer:</span> AI timelines cluster in 2027–2030 with wide dispersion. Labor effects are descriptive so far; policy deadlines are concrete.</p>
-        <p><span class="label">Key Evidence:</span> METR task horizons, Stanford/Yale labor studies, EU AI Act delays, California and Colorado laws, and updated lab safety frameworks.</p>
-        <p><span class="label">Recommendations:</span> Review quarterly against capability and labor signposts. Track EU high-risk and sandbox dates. Prepare for state-level AI rules.</p>
-        <p class="form-note" style="margin-top: 8px; text-align: left;">Full 8-page example. Public data only.</p>
-        <a href="ai-and-2027.pdf" class="sample-download" download>Download Full Sample PDF</a>
-      </div>
     </section>
 
     <section>
@@ -432,6 +483,34 @@
         </div>
         <p class="prefill-note">PayPal link has the $297 amount pre-filled.</p>
         <p class="form-note" style="margin-top: 16px;">Or <a href="#request" style="color: var(--accent); text-decoration: none;">submit a request</a> and we'll send a payment link.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>FAQ</h2>
+      <div class="faq-item">
+        <h3>What's included?</h3>
+        <p>A 5–8 page PDF with a direct answer, key evidence, strongest counterpoints, residual uncertainties, and 3–5 actionable recommendations. Source-linked throughout.</p>
+      </div>
+      <div class="faq-item">
+        <h3>How fast is delivery?</h3>
+        <p>Within 48 hours of confirmed payment and a clear topic. No open-ended timelines.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Who is this for?</h3>
+        <p>Founders, product leads, consultants, investors, and enterprise teams making decisions about multi-agent frameworks, platforms, or the agentic stack.</p>
+      </div>
+      <div class="faq-item">
+        <h3>What sources are used?</h3>
+        <p>Public primary sources only — documentation, adoption signals, pricing pages, production case studies, and credible reporting. No confidential or paywalled data.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Can I see samples first?</h3>
+        <p>Yes. Two full sample PDFs are available above — one on multi-agent frameworks and one on AI timelines through 2027.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Is there a refund or revision?</h3>
+        <p>Fixed scope means the brief matches the topic you submit. If a section is missing or a citation doesn't resolve, we'll correct it. No open-ended consulting.</p>
       </div>
     </section>
 
