@@ -333,6 +333,17 @@
     font-weight: 600;
     font-variant-numeric: tabular-nums;
   }
+  .notice {
+    background: var(--accent-soft);
+    color: var(--text);
+    border-bottom: 1px solid var(--border);
+    text-align: center;
+    font-size: 14.5px;
+    font-weight: 500;
+    line-height: 1.5;
+    padding: 14px 24px;
+    margin: 0;
+  }
   @media (max-width: 600px) {
     h1 { font-size: 32px; }
     .price { font-size: 44px; }
@@ -343,10 +354,12 @@
     .form-row { grid-template-columns: 1fr; }
     .payment-buttons { flex-direction: column; }
     .traffic-ticker { bottom: 12px; right: 12px; font-size: 10px; padding: 5px 10px; }
+    .notice { font-size: 13.5px; padding: 12px 16px; }
   }
 </style>
 </head>
 <body>
+  <p class="notice" role="status">projectcrewai.io is under construction. This site will be moving there soon.</p>
   <div class="container">
     <header class="hero">
       <div class="badge">FIXED SCOPE · 48-HOUR DELIVERY</div>
@@ -536,14 +549,14 @@
           <textarea id="message" name="message" rows="4" placeholder="Any specific constraints, use case, or details..."></textarea>
         </div>
         <button type="submit" class="cta">Submit Request — $297</button>
-        <p class="form-note">Or email directly: <a href="mailto:thehandofretribution@outlook.com" style="color: var(--accent); text-decoration: none;">thehandofretribution@outlook.com</a></p>
+        <p class="form-note">Or email directly: <a href="mailto:projectcrewai@gmail.com" style="color: var(--accent); text-decoration: none;">projectcrewai@gmail.com</a></p>
       </form>
     </section>
 
     <footer>
       Produced by a multi-agent investigative cell.<br>
       Fixed-scope. Source-linked. Challenge-tested.<br>
-      Contact: <a href="mailto:thehandofretribution@outlook.com" style="color: var(--accent); text-decoration: none;">thehandofretribution@outlook.com</a>
+      Contact: <a href="mailto:projectcrewai@gmail.com" style="color: var(--accent); text-decoration: none;">projectcrewai@gmail.com</a>
     </footer>
 
     <div class="traffic-ticker" id="traffic-ticker" aria-label="Page views">
@@ -572,7 +585,7 @@
           `---\nSent from AI Agents Intelligence Briefs landing page`
         );
 
-        window.location.href = `mailto:thehandofretribution@outlook.com?subject=${subject}&body=${body}`;
+        window.location.href = `mailto:projectcrewai@gmail.com?subject=${subject}&body=${body}`;
         return false;
       }
 
