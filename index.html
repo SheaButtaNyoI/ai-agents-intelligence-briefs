@@ -318,6 +318,14 @@
     padding: 14px 24px;
     margin: 0;
   }
+  .notice a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .notice a:hover {
+    text-decoration: underline;
+  }
   @media (max-width: 600px) {
     h1 { font-size: 32px; }
     .price { font-size: 44px; }
@@ -333,7 +341,7 @@
 </style>
 </head>
 <body>
-  <p class="notice" role="status">The website is under construction. Will be moved to projectcrewai.io soon.</p>
+  <p class="notice" role="status">The website is under construction. Will be moved to <a href="https://projectcrewai.io" target="_blank" rel="noopener">projectcrewai.io</a> soon.</p>
   <div class="container">
     <header class="hero">
       <img class="logo" src="logo.jpg" alt="Project Crew AI logo">
