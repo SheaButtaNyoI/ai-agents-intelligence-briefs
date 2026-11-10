@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Agents Intelligence Briefs — $297</title>
+<title>AI Agents Intelligence Briefs — $297 standard. First five briefs: $197 through Friday, December 4, 2026, then $297.</title>
 <style>
   :root {
     --bg: #000000;
@@ -23,7 +23,7 @@
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
   }
-  .container { max-width: 760px; margin: 0 auto; padding: 48px 24px 80px; }
+  .container { max-width: 1120px; margin: 0 auto; padding: 48px 24px 80px; }
   .hero {
     text-align: center;
     padding-bottom: 48px;
@@ -205,6 +205,95 @@
     text-decoration: none;
   }
   .sample-download:hover { background: #ff1a1a; }
+  .samples-eyebrow {
+    color: var(--muted);
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    margin-bottom: 8px;
+  }
+  .samples-intro {
+    color: var(--muted);
+    font-size: 16px;
+    max-width: 68ch;
+    margin-bottom: 8px;
+  }
+  .sample-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 270px), 1fr));
+    gap: 24px;
+    margin: 28px 0 32px;
+  }
+  .sample-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .sample-kind {
+    color: var(--muted);
+    font-size: 13px;
+    letter-spacing: 0.03em;
+    margin-bottom: 10px;
+  }
+  .sample-card h3 {
+    font-size: 20px;
+    font-weight: 650;
+    line-height: 1.3;
+    margin-bottom: 12px;
+  }
+  .sample-card p {
+    color: var(--muted);
+    font-size: 14.5px;
+    margin-bottom: 12px;
+  }
+  .sample-note { color: #c5d0da; }
+  .sample-card ol {
+    margin: 0 0 12px;
+    padding-left: 22px;
+    color: var(--text);
+    font-size: 14.5px;
+  }
+  .sample-card li { margin-bottom: 4px; }
+  .sample-link {
+    margin-top: auto;
+    color: var(--accent);
+    font-weight: 650;
+    font-size: 14.5px;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .sample-link:hover { color: #ff4d4d; }
+  .sample-price {
+    border-top: 2px solid #3a4654;
+    padding-top: 18px;
+  }
+  .sample-price h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+  .sample-price p {
+    color: var(--muted);
+    font-size: 15px;
+    margin-bottom: 10px;
+  }
+  .sample-price strong { color: var(--text); }
+  .price-offer {
+    display: block;
+    max-width: 640px;
+    margin: 10px auto 0;
+    font-size: 17px;
+    line-height: 1.45;
+    color: var(--text);
+    font-weight: 500;
+  }
+  .price-offer strong { color: var(--accent); font-weight: 700; }
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
   .steps { counter-reset: step; }
   .step { display: flex; gap: 16px; margin-bottom: 20px; }
   .step-num {
@@ -347,11 +436,12 @@
       <h1>Decision-ready briefs<br>on AI agents</h1>
       <div class="price-row">
         <div class="price">$297</div>
-        <div class="price-label">per brief</div>
+        <div class="price-label">standard.</div>
       </div>
+      <p class="price-offer">First five briefs: <strong>$197 through Friday, December 4, 2026</strong>, then $297.</p>
       <p class="subtitle">Know which frameworks, platforms, and tools actually hold up — with evidence, counterpoints, and clear next steps. Not another open-ended research project.</p>
       <div>
-        <a href="#buy" class="cta-buy">Buy Now — $297</a>
+        <a href="#request" class="cta">Request a brief</a>
         <a href="#sample" class="cta-secondary">View free samples →</a>
       </div>
     </header>
@@ -360,29 +450,43 @@
       <strong>How the briefs are built:</strong> A multi-agent investigative cell researches primary sources, stress-tests claims, and synthesizes only what is decision-relevant. Every finding is source-linked. No vendor copy, no filler.
     </div>
 
-    <section id="sample">
-      <h2>See Exactly What You Get</h2>
-      <div class="sample">
-        <div class="sample-header">
-          <h3>Multi-Agent Frameworks Landscape — October 2026</h3>
-          <div class="sample-tag">SAMPLE</div>
-        </div>
-        <p><span class="label">Direct Answer:</span> LangGraph leads for production-grade stateful systems. CrewAI leads for rapid role-based prototyping. AutoGen is in maintenance mode.</p>
-        <p><span class="label">Key Evidence:</span> LangGraph shows the strongest production footprint and ~71M monthly installs. CrewAI is strongest for demos and business workflows.</p>
-        <p><span class="label">Recommendations:</span> Default to LangGraph for auditable production systems. Use CrewAI for fast internal prototypes. Avoid new AutoGen builds.</p>
-        <a href="AI_Agents_Intelligence_Brief_Sample.pdf" class="sample-download" download>Download Full Sample PDF</a>
+    <section id="sample" aria-labelledby="sample-title">
+      <p class="samples-eyebrow">Project Crew AI</p>
+      <h2 id="sample-title">Research examples</h2>
+      <p class="samples-intro">Two research examples and a guide to the brief structure.</p>
+      <div class="sample-grid">
+        <article class="sample-card" aria-labelledby="framework-title">
+          <p class="sample-kind">Sample · November 7, 2026</p>
+          <h3 id="framework-title">Multi-Agent Frameworks: Sample Intelligence Brief</h3>
+          <p>Lifecycle notes and selected documented capabilities for multi-agent frameworks, with counterpoints, uncertainties and a proposed matched-task pilot. No production-adoption ranking is established.</p>
+          <p class="sample-note">Unsupported share, download, workflow-volume and price figures were removed and are not replaced here. 5 total pages including references (13 sources).</p>
+          <a class="sample-link" href="AI_Agents_Intelligence_Brief_Sample.pdf">View framework sample PDF</a>
+        </article>
+        <article class="sample-card" aria-labelledby="ai-2027-title">
+          <p class="sample-kind">Sample · November 7, 2026</p>
+          <h3 id="ai-2027-title">AI and 2027</h3>
+          <p>A narrowed example covering AI timeline forecasts, capability measurement, labor evidence, safety-evaluation reliability, and conditional EU dates alongside explicitly historical US legal snapshots. It distinguishes scenarios, forecasts, measurements and interpretation.</p>
+          <p class="sample-note">Underlying research: October 22, 2026. Evidence updated: November 7, 2026. 7 total pages including references (26 sources). China policy, export controls, adoption surveys and lab-framework inventories are outside this sample. SB 53 is a secondary 2025 summary, not current applicability. Colorado is an April filing, not current stay status. The US legal parts are historical and secondary snapshots, not current legal guidance.</p>
+          <a class="sample-link" href="ai-and-2027.pdf">View AI and 2027 sample PDF</a>
+        </article>
+        <article class="sample-card" aria-labelledby="format-title">
+          <p class="sample-kind">Format guide · Not a third report</p>
+          <h3 id="format-title">How a brief is structured</h3>
+          <ol>
+            <li>Direct Answer</li>
+            <li>Key Evidence</li>
+            <li>Strongest Counterpoints</li>
+            <li>Residual Uncertainties</li>
+            <li>Actionable Recommendations</li>
+          </ol>
+          <p class="sample-note">This card describes the format. It is not a third finished report, client case study or document download.</p>
+        </article>
       </div>
-      <div class="sample">
-        <div class="sample-header">
-          <h3>AI and 2027 — October 2026</h3>
-          <div class="sample-tag">SAMPLE</div>
-        </div>
-        <p><span class="label">Direct Answer:</span> AI timelines cluster in 2027–2030 with wide dispersion. Labor effects are descriptive so far; policy deadlines are concrete.</p>
-        <p><span class="label">Key Evidence:</span> METR task horizons, Stanford/Yale labor studies, EU AI Act delays, California and Colorado laws, and updated lab safety frameworks.</p>
-        <p><span class="label">Recommendations:</span> Review quarterly against capability and labor signposts. Track EU high-risk and sandbox dates. Prepare for state-level AI rules.</p>
-        <p class="form-note" style="margin-top: 8px; text-align: left;">Full 8-page example. Public data only.</p>
-        <a href="ai-and-2027.pdf" class="sample-download" download>Download Full Sample PDF</a>
-      </div>
+      <aside class="sample-price" aria-label="Brief pricing">
+        <h3>Custom research brief</h3>
+        <p><strong>$297 standard.</strong> First five briefs: <strong>$197 through Friday, December 4, 2026</strong>, then $297.</p>
+        <p>One focused question, a 5–8-page PDF and advertised 48-hour delivery. Delivery-clock details and service terms require confirmation before an order is accepted. No remaining-slot count is represented here.</p>
+      </aside>
     </section>
 
     <section>
@@ -458,7 +562,7 @@
         </div>
         <div class="step">
           <div class="step-num">3</div>
-          <p>You receive a 5–8 page decision-ready brief within 48 hours.</p>
+          <p>You receive a 5–8 page decision-ready brief. Advertised delivery is 48 hours.</p>
         </div>
         <div class="step">
           <div class="step-num">4</div>
@@ -469,14 +573,14 @@
 
     <section id="buy">
       <div class="buy-section">
-        <h2>Buy a Brief — $297</h2>
-        <p>Pay now and submit your topic. Delivery within 48 hours.</p>
+        <h2>Request a brief</h2>
+        <p><strong>$297 standard.</strong> First five briefs: <strong>$197 through Friday, December 4, 2026</strong>, then $297.</p>
+        <p>Card checkout is coming soon. This page does not charge a card. Submit a request and we will send a payment link for the price that applies.</p>
         <div class="payment-buttons">
-          <a href="https://www.paypal.com/paypalme/buttasbest/297" class="cta-paypal" target="_blank" rel="noopener">Pay $297 with PayPal</a>
-          <a href="https://buy.stripe.com/test_placeholder_replace_with_your_link" class="cta-buy" target="_blank" rel="noopener">Pay $297 with Stripe</a>
+          <a href="#request" class="cta">Request a brief</a>
+          <a href="https://www.paypal.com/paypalme/buttasbest/297" class="cta-paypal" target="_blank" rel="noopener">PayPal — $297 standard</a>
         </div>
-        <p class="prefill-note">PayPal link has the $297 amount pre-filled.</p>
-        <p class="form-note" style="margin-top: 16px;">Or <a href="#request" style="color: var(--accent); text-decoration: none;">submit a request</a> and we'll send a payment link.</p>
+        <p class="form-note">The PayPal link is pre-filled at the $297 standard price. Introductory $197 briefs are arranged from a request. Delivery-clock details and service terms require confirmation before an order is accepted.</p>
       </div>
     </section>
 
@@ -488,7 +592,7 @@
       </div>
       <div class="faq-item">
         <h3>How fast is delivery?</h3>
-        <p>Within 48 hours of confirmed payment and a clear topic. No open-ended timelines.</p>
+        <p>Advertised delivery is 48 hours after the topic and payment are confirmed. Delivery-clock details and service terms require confirmation before an order is accepted.</p>
       </div>
       <div class="faq-item">
         <h3>Who is this for?</h3>
@@ -500,7 +604,7 @@
       </div>
       <div class="faq-item">
         <h3>Can I see samples first?</h3>
-        <p>Yes. Two full sample PDFs are available above — one on multi-agent frameworks and one on AI timelines through 2027.</p>
+        <p>Yes. Two sample PDFs are linked above: the multi-agent frameworks brief (5 pages, 13 sources) and the narrowed AI and 2027 example (7 pages, 26 sources). The third card explains the five-section format. It is not another report and has no download.</p>
       </div>
       <div class="faq-item">
         <h3>Is there a refund or revision?</h3>
@@ -529,8 +633,8 @@
           <label for="message">Additional Context (optional)</label>
           <textarea id="message" name="message" rows="4" placeholder="Any specific constraints, use case, or details..."></textarea>
         </div>
-        <button type="submit" class="cta">Submit Request — $297</button>
-        <p class="form-note">Or email directly: <a href="mailto:aicellreport@projectcrewai.io" style="color: var(--accent); text-decoration: none;">aicellreport@projectcrewai.io</a></p>
+        <button type="submit" class="cta">Submit request</button>
+        <p class="form-note"><strong>$297 standard.</strong> First five briefs: <strong>$197 through Friday, December 4, 2026</strong>, then $297. Or email directly: <a href="mailto:aicellreport@projectcrewai.io" style="color: var(--accent); text-decoration: none;">aicellreport@projectcrewai.io</a></p>
       </form>
     </section>
 
@@ -540,5 +644,27 @@
       Contact: <a href="mailto:aicellreport@projectcrewai.io" style="color: var(--accent); text-decoration: none;">aicellreport@projectcrewai.io</a>
     </footer>
   </div>
+  <script>
+    function handleSubmit(event) {
+      event.preventDefault();
+      var name = document.getElementById("name").value.trim();
+      var email = document.getElementById("email").value.trim();
+      var topic = document.getElementById("topic").value.trim();
+      var message = document.getElementById("message").value.trim();
+      var body = [
+        "Name: " + name,
+        "Email: " + email,
+        "Topic: " + topic,
+        "",
+        message,
+        "",
+        "Pricing: $297 standard. First five briefs: $197 through Friday, December 4, 2026, then $297."
+      ].join("\n");
+      window.location.href = "mailto:aicellreport@projectcrewai.io?subject="
+        + encodeURIComponent("Brief request: " + topic)
+        + "&body=" + encodeURIComponent(body);
+      return false;
+    }
+  </script>
 </body>
 </html>
