@@ -14,8 +14,6 @@
     --muted: #8b949e;
     --accent: #e10600;
     --accent-soft: rgba(225, 6, 0, 0.12);
-    --green: #3dd68c;
-    --green-soft: rgba(61, 214, 140, 0.12);
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
@@ -70,7 +68,7 @@
     font-size: 56px;
     font-weight: 800;
     letter-spacing: -1px;
-    color: var(--green);
+    color: var(--accent);
     line-height: 1;
   }
   .price-label {
@@ -98,8 +96,8 @@
   .cta:hover { background: #ff1a1a; transform: translateY(-1px); }
   .cta-buy {
     display: inline-block;
-    background: var(--green);
-    color: #0c0e14;
+    background: var(--accent);
+    color: white;
     font-weight: 700;
     font-size: 15px;
     padding: 14px 28px;
@@ -108,7 +106,7 @@
     transition: transform 0.1s, background 0.15s;
     margin-right: 12px;
   }
-  .cta-buy:hover { background: #4de09a; transform: translateY(-1px); }
+  .cta-buy:hover { background: #ff1a1a; transform: translateY(-1px); }
   .cta-paypal {
     display: inline-block;
     background: #0070ba;
@@ -188,8 +186,8 @@
   .sample-tag {
     font-size: 11px;
     font-weight: 600;
-    background: var(--green-soft);
-    color: var(--green);
+    background: var(--accent-soft);
+    color: var(--accent);
     padding: 4px 10px;
     border-radius: 999px;
   }
@@ -279,7 +277,7 @@
   .payment-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
   .prefill-note {
     font-size: 13px;
-    color: var(--green);
+    color: var(--accent);
     margin-top: 12px;
     font-weight: 500;
   }
