@@ -238,6 +238,66 @@
   .nav-links a:hover,
   .nav-links a[aria-current="true"] { color: #fff; }
   .nav-links a[aria-current="true"] { box-shadow: inset 0 -2px 0 var(--red-hot); }
+  .nav-drop { position: relative; }
+  .nav-drop-btn {
+    background: transparent;
+    border: 0;
+    color: var(--muted);
+    font-family: "Martian Mono", ui-monospace, monospace;
+    font-size: 11px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    padding: 9px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  .nav-drop-btn::after {
+    content: "";
+    display: inline-block;
+    margin-left: 6px;
+    border: 4px solid transparent;
+    border-top-color: currentColor;
+    vertical-align: middle;
+    transform: translateY(1px);
+  }
+  .nav-drop-btn:hover,
+  .nav-drop-btn[aria-expanded="true"] { color: #fff; }
+  .nav-drop-btn[aria-expanded="true"] { box-shadow: inset 0 -2px 0 var(--red-hot); }
+  .nav-drop-panel {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 196px;
+    padding: 8px;
+    background: #000;
+    border: 1px solid rgba(225,6,0,.65);
+    border-radius: 12px;
+    box-shadow: 0 18px 40px rgba(0,0,0,.6), 0 0 24px rgba(225,6,0,.2);
+    z-index: 60;
+  }
+  .nav-drop-panel::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -10px;
+    height: 10px;
+  }
+  .nav-drop.open .nav-drop-panel { display: block; }
+  .nav-links .nav-drop-panel a {
+    display: block;
+    text-transform: none;
+    letter-spacing: .01em;
+    font-family: Rajdhani, "Segoe UI", sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 10px 12px;
+    color: #fff;
+    box-shadow: none;
+  }
+  .nav-links .nav-drop-panel a:hover,
+  .nav-links .nav-drop-panel a:focus-visible { background: rgba(225,6,0,.18); color: #fff; }
   .nav-toggle {
     display: none;
     background: transparent;
@@ -418,7 +478,7 @@
     gap: 14px;
   }
   .topic-grid { grid-template-columns: repeat(3, 1fr); }
-  .topic, .deliver, .who, .value, .sample-card, .faq-item, .buy-card, .contact-form {
+  .topic, .deliver, .who, .value, .sample-card, .service-card, .faq-item, .buy-card, .contact-form {
     background: var(--card);
     border: 1px solid var(--line);
     border-radius: 14px;
@@ -427,7 +487,7 @@
     padding: 18px 18px 16px;
     min-height: 92px;
   }
-  .topic:hover, .deliver:hover, .who:hover, .value:hover, .sample-card:hover {
+  .topic:hover, .deliver:hover, .who:hover, .value:hover, .sample-card:hover, .service-card:hover {
     border-color: rgba(255,59,59,.75);
     box-shadow: 0 0 28px rgba(225,6,0,.18);
   }
@@ -543,6 +603,29 @@
   }
   .sample-price h3 { margin: 0 0 8px; font-family: Rajdhani, sans-serif; font-size: 22px; }
   .sample-price p { margin: 0 0 8px; color: var(--muted); }
+  .service-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 22px; }
+  .service-card { padding: 22px; display: flex; flex-direction: column; scroll-margin-top: 92px; }
+  .service-card h3 { margin: 0 0 8px; font-family: Rajdhani, "Segoe UI", sans-serif; font-size: 26px; letter-spacing: -.01em; }
+  .service-card > p { margin: 0; color: var(--muted); }
+  .service-card h4 {
+    margin: 18px 0 8px;
+    font-family: "Martian Mono", ui-monospace, monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--red-hot);
+  }
+  .service-card ul { margin: 0; padding-left: 18px; color: var(--muted); }
+  .service-card li { margin: 5px 0; }
+  .service-card > .service-price {
+    margin: 18px 0 0;
+    font-family: "Chakra Petch", "Segoe UI", sans-serif;
+    font-size: 22px;
+    color: #fff;
+  }
+  .service-card .btn { margin-top: 14px; align-self: flex-start; }
+  .service-note { margin: 16px 0 0; color: var(--muted); max-width: 68ch; }
   .about-grid {
     display: grid;
     grid-template-columns: 1.15fr .85fr;
@@ -620,6 +703,20 @@
       border-bottom: 1px solid rgba(225,6,0,.6);
     }
     .nav-links.open { display: flex; }
+    .nav-drop { width: 100%; }
+    .nav-drop-btn { width: 100%; text-align: left; padding: 12px 10px; }
+    .nav-drop-panel {
+      position: static;
+      min-width: 0;
+      margin: 0 0 4px 8px;
+      padding: 0;
+      border: 0;
+      border-radius: 0;
+      box-shadow: none;
+      background: transparent;
+    }
+    .nav-drop-panel::before { display: none; }
+    .nav-links .nav-drop-panel a { padding: 10px 12px; }
     .nav-links a { padding: 12px 10px; }
     .nav-links a.nav-buy { display: block; margin-top: 8px; background: #fff; color: #000; text-align: center; border-radius: 10px; font-family: Rajdhani, "Segoe UI", sans-serif; font-weight: 700; letter-spacing: .02em; text-transform: none; }
     .btn-nav { display: none; }
@@ -635,9 +732,9 @@
   @media (max-width: 640px) {
     .wrap { width: min(1120px, calc(100% - 28px)); }
     .hero h1 { font-size: 28px; max-width: none; }
-    .metrics, .topic-grid, .deliver-grid, .sample-grid, .who-grid, .value-grid, .form-row { grid-template-columns: 1fr; }
+    .metrics, .topic-grid, .deliver-grid, .sample-grid, .service-grid, .who-grid, .value-grid, .form-row { grid-template-columns: 1fr; }
     .metric { border-right: 0; border-bottom: 1px solid var(--line); }
-    .hero-actions .btn, .buy-card .btn { width: 100%; }
+    .hero-actions .btn, .buy-card .btn, .service-card .btn { width: 100%; }
     .site-header { padding: 0 14px; }
     section { padding: 64px 0; }
   }
@@ -645,7 +742,7 @@
     html { scroll-behavior: auto; }
     .js .reveal { opacity: 1; transform: none; }
     .btn { transition: none; }
-    .topic:hover, .deliver:hover, .who:hover, .value:hover, .sample-card:hover { transform: none; }
+    .topic:hover, .deliver:hover, .who:hover, .value:hover, .sample-card:hover, .service-card:hover { transform: none; }
     .intro-glow::before { animation: none; }
   }
 </style>
@@ -672,6 +769,13 @@
     <a href="#deliver">Deliver</a>
     <a href="#process">Process</a>
     <a href="#samples">Samples</a>
+    <div class="nav-drop" id="services-menu">
+      <button type="button" class="nav-drop-btn" id="services-btn" aria-expanded="false" aria-controls="services-panel" aria-haspopup="true">Services</button>
+      <div class="nav-drop-panel" id="services-panel" role="menu" aria-labelledby="services-btn">
+        <a role="menuitem" href="#website-design">Website Design</a>
+        <a role="menuitem" href="#ai-integrations">AI Integrations</a>
+      </div>
+    </div>
     <a href="#about">About</a>
     <a href="#faq">FAQ</a>
     <a href="#request">Request</a>
@@ -808,6 +912,60 @@
         <p><strong>$297 standard.</strong> First five briefs: <strong>$197 through Friday, December 4, 2026</strong>, whichever comes first, then $297.</p>
         <p>One focused question, a 5–8-page PDF and advertised 48-hour delivery. Delivery-clock details and service terms require confirmation before an order is accepted. No remaining-slot count is represented here.</p>
       </aside>
+    </section>
+
+    <section id="services" aria-labelledby="services-title">
+      <div class="block-head">
+        <div>
+          <p class="eyebrow">Services</p>
+          <h2 class="section-title" id="services-title">Also available</h2>
+        </div>
+      </div>
+      <p class="intro-copy">Intelligence Briefs stay our lead offer. For small businesses and individuals who need a site built or AI wired into tools they already use, we also take on custom work — quoted after a short consult.</p>
+      <div class="service-grid">
+        <article class="service-card" id="website-design">
+          <h3>Custom website design</h3>
+          <p>A clean, conversion-focused site for your small business or personal brand. Built for phone and desktop, with clear pages for what you offer and how people reach you.</p>
+          <h4>What's included</h4>
+          <ul>
+            <li>Starter site of up to 4 pages (home, about, services/offer, contact)</li>
+            <li>Mobile-responsive layout in your brand colors</li>
+            <li>Contact form wired to your email</li>
+            <li>Basic SEO titles and meta</li>
+            <li>One revision round after first draft</li>
+            <li>File handoff + a short how-to for updates</li>
+          </ul>
+          <h4>Not included</h4>
+          <ul>
+            <li>Ongoing hosting, domain renewal, or monthly content updates</li>
+            <li>E-commerce catalogs, memberships, or custom apps</li>
+            <li>Unlimited revision rounds or open-ended redesign</li>
+          </ul>
+          <p class="service-price">Custom quote</p>
+          <a class="btn btn-primary" href="mailto:aicellreport@projectcrewai.io?subject=Website%20design%20quote">Request a free consult</a>
+        </article>
+        <article class="service-card" id="ai-integrations">
+          <h3>Custom AI integrations</h3>
+          <p>Practical AI wired into tools you already run — inbox, CRM, booking, docs, or support — so one routine workflow gets handled without a full rebuild. For small businesses and individuals.</p>
+          <h4>What's included</h4>
+          <ul>
+            <li>Discovery and scoping of one workflow to automate or assist</li>
+            <li>Integration with up to 2 tools you already use</li>
+            <li>A working prototype you can click through</li>
+            <li>One revision round after handoff</li>
+            <li>Short notes for how to run and stop it</li>
+          </ul>
+          <h4>Not included</h4>
+          <ul>
+            <li>Full platform builds or replacing your existing systems</li>
+            <li>Ongoing monitoring, prompt tuning, or retainer support (quoted separately if needed)</li>
+            <li>Unbounded tool count or open-ended consulting hours</li>
+          </ul>
+          <p class="service-price">Custom quote</p>
+          <a class="btn btn-primary" href="mailto:aicellreport@projectcrewai.io?subject=AI%20integration%20quote">Request a free consult</a>
+        </article>
+      </div>
+      <p class="service-note">Briefs are fixed-scope and priced above. Website design and AI integrations are custom-quoted after a short consult — no online checkout for these.</p>
     </section>
 
     <section id="about" aria-labelledby="about-title">
@@ -950,6 +1108,32 @@
       nav.classList.remove("open");
       toggle.setAttribute("aria-expanded", "false");
       toggle.textContent = "Menu";
+      setServicesOpen(false);
+    }
+  });
+
+  var servicesMenu = document.getElementById("services-menu");
+  var servicesBtn = document.getElementById("services-btn");
+  var canHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+  function setServicesOpen(open) {
+    servicesMenu.classList.toggle("open", open);
+    servicesBtn.setAttribute("aria-expanded", open ? "true" : "false");
+  }
+  servicesBtn.addEventListener("click", function (event) {
+    event.stopPropagation();
+    setServicesOpen(servicesBtn.getAttribute("aria-expanded") !== "true");
+  });
+  if (canHover) {
+    servicesMenu.addEventListener("mouseenter", function () { setServicesOpen(true); });
+    servicesMenu.addEventListener("mouseleave", function () { setServicesOpen(false); });
+  }
+  document.addEventListener("click", function (event) {
+    if (!servicesMenu.contains(event.target)) setServicesOpen(false);
+  });
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape" && servicesBtn.getAttribute("aria-expanded") === "true") {
+      setServicesOpen(false);
+      servicesBtn.focus();
     }
   });
 
