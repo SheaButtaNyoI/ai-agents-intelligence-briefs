@@ -626,6 +626,12 @@
   }
   .service-card .btn { margin-top: 14px; align-self: flex-start; }
   .service-note { margin: 16px 0 0; color: var(--muted); max-width: 68ch; }
+  .service-card > .turnaround { margin: 16px 0 0; color: var(--muted); }
+  .score-link { display: inline-block; margin-top: 12px; color: var(--red-hot); font-family: Rajdhani, "Segoe UI", sans-serif; font-weight: 700; font-size: 16px; }
+  .score-link:hover { color: #fff; }
+  .hero-price { margin-top: 22px; color: #fff; font-size: 18px; max-width: 68ch; }
+  .hero-price strong { color: #fff; text-shadow: 0 0 18px rgba(225,6,0,.55); }
+  .hero-italic { margin: 18px 0 0; max-width: 62ch; color: var(--muted); }
   .about-grid {
     display: grid;
     grid-template-columns: 1.15fr .85fr;
@@ -787,24 +793,16 @@
 <main id="top">
   <div class="wrap">
     <header class="hero">
-      <p class="eyebrow">Fixed scope · 48-hour delivery</p>
       <h1>Decision-ready<br><em>briefs</em><span>on AI agents</span></h1>
       <p class="lede">Know which frameworks, platforms, and tools actually hold up — with evidence, counterpoints, and clear next steps. Not another open-ended research project.</p>
-      <div class="price-block">
-        <p class="launch"><strong>$197</strong> <span>launch price</span></p>
-        <p class="price-offer">$297 standard. First five briefs: <strong>$197 through Friday, December 4, 2026</strong>, whichever comes first, then $297. One-time purchase.</p>
-      </div>
+      <p class="lede">A multi-agent investigative cell researches primary sources, stress-tests claims, and delivers a fixed-scope 5–8 page PDF within 48 hours of scope confirmation. One question. Your choice.</p>
+      <p class="hero-price"><strong>$197 launch</strong> · First five briefs or through Friday, Dec 4, 2026, whichever comes first, then $297. One-time purchase.</p>
       <div class="hero-actions">
-        <a class="btn btn-primary" href="https://buy.stripe.com/4gM7sL9HC08NgNJgKU4Ja01" target="_blank" rel="noopener">Buy now - $197 launch price</a>
-        <a class="btn btn-ghost" href="#samples">View free samples →</a>
+        <a class="btn btn-primary" href="mailto:aicellreport@projectcrewai.io?subject=Free%20scoping%20note%20request">Get a free scoping note</a>
+        <a class="btn btn-ghost" href="#samples">See a sample brief</a>
+        <a class="btn btn-ghost" href="scorecards/brief.html">Are you ready? Take the scorecard</a>
       </div>
-      <div class="metrics" aria-label="What a brief includes">
-        <div class="metric"><b>5–8</b><span>Page PDF brief</span></div>
-        <div class="metric"><b>48 hrs</b><span>Advertised delivery</span></div>
-        <div class="metric"><b>1</b><span>Question or topic</span></div>
-        <div class="metric"><b>$197</b><span>Launch, then $297</span></div>
-      </div>
-      <p class="method"><strong>How the briefs are built:</strong> A multi-agent investigative cell researches primary sources, stress-tests claims, and synthesizes only what is decision-relevant. Every finding is source-linked. No vendor copy, no filler.</p>
+      <p class="hero-italic"><em>The decision is happening either way. Go in with the sources already stress-tested.</em></p>
     </header>
 
     <section id="topics" aria-labelledby="topics-title">
@@ -921,51 +919,57 @@
           <h2 class="section-title" id="services-title">Also available</h2>
         </div>
       </div>
-      <p class="intro-copy">Intelligence Briefs stay our lead offer. For small businesses and individuals who need a site built or AI wired into tools they already use, we also take on custom work — quoted after a short consult.</p>
+      <p class="intro-copy">Intelligence Briefs stay our lead offer. If you also need a starter website or one AI workflow wired into tools you already pay for, we take that on as capped project work — custom-quoted after a free consult. The work of shipping a site or cleaning up a workflow is happening either way; you can join with a clear scope, or keep patching it yourself.</p>
       <div class="service-grid">
         <article class="service-card" id="website-design">
           <h3>Custom website design</h3>
           <p>A clean, conversion-focused site for your small business or personal brand. Built for phone and desktop, with clear pages for what you offer and how people reach you.</p>
           <h4>What's included</h4>
           <ul>
-            <li>Starter site of up to 4 pages (home, about, services/offer, contact)</li>
-            <li>Mobile-responsive layout in your brand colors</li>
+            <li>Starter site of up to 4 pages (Home, About, Services/Offer, Contact)</li>
+            <li>Mobile-responsive layout on a reusable template</li>
             <li>Contact form wired to your email</li>
-            <li>Basic SEO titles and meta</li>
-            <li>One revision round after first draft</li>
-            <li>File handoff + a short how-to for updates</li>
+            <li>Basic SEO titles and one analytics install</li>
+            <li>One round of written revisions after the first draft</li>
+            <li>File handoff + a 30-minute walkthrough call</li>
           </ul>
-          <h4>Not included</h4>
+          <h4>What's not included</h4>
           <ul>
+            <li>Custom illustration; copywriting beyond light edits of your copy</li>
+            <li>E-commerce, memberships, or CRM builds</li>
             <li>Ongoing hosting, domain renewal, or monthly content updates</li>
-            <li>E-commerce catalogs, memberships, or custom apps</li>
-            <li>Unlimited revision rounds or open-ended redesign</li>
+            <li>Unlimited revisions or open-ended redesign</li>
           </ul>
+          <p class="turnaround">Turnaround: 10–14 calendar days after quote acceptance, deposit, and assets received (logo, photos, copy draft, domain access).</p>
           <p class="service-price">Custom quote</p>
           <a class="btn btn-primary" href="mailto:aicellreport@projectcrewai.io?subject=Website%20design%20quote">Request a free consult</a>
+          <a class="score-link" href="scorecards/website.html">Not sure? Take the website readiness scorecard</a>
         </article>
         <article class="service-card" id="ai-integrations">
           <h3>Custom AI integrations</h3>
-          <p>Practical AI wired into tools you already run — inbox, CRM, booking, docs, or support — so one routine workflow gets handled without a full rebuild. For small businesses and individuals.</p>
+          <p>Practical AI wired into tools you already run — inbox, CRM, booking, docs, or support — so one routine workflow gets handled without a full rebuild.</p>
           <h4>What's included</h4>
           <ul>
-            <li>Discovery and scoping of one workflow to automate or assist</li>
-            <li>Integration with up to 2 tools you already use</li>
-            <li>A working prototype you can click through</li>
-            <li>One revision round after handoff</li>
-            <li>Short notes for how to run and stop it</li>
+            <li>Discovery of one workflow and success criteria</li>
+            <li>Integration across up to 2 tools you already pay for</li>
+            <li>One working automation or assistant, plus a short written runbook</li>
+            <li>One revision round after the first working version</li>
+            <li>14 days of bug-fix support after handoff (email only)</li>
           </ul>
-          <h4>Not included</h4>
+          <h4>What's not included</h4>
           <ul>
-            <li>Full platform builds or replacing your existing systems</li>
-            <li>Ongoing monitoring, prompt tuning, or retainer support (quoted separately if needed)</li>
+            <li>Building a new product or training custom models</li>
+            <li>Multi-department rollouts or SLA/uptime guarantees</li>
+            <li>Ongoing ops after the 14-day bug-fix window</li>
             <li>Unbounded tool count or open-ended consulting hours</li>
           </ul>
+          <p class="turnaround">Turnaround: 14–21 calendar days after quote acceptance, deposit, tool access granted, and sample data provided.</p>
           <p class="service-price">Custom quote</p>
           <a class="btn btn-primary" href="mailto:aicellreport@projectcrewai.io?subject=AI%20integration%20quote">Request a free consult</a>
+          <a class="score-link" href="scorecards/ai.html">Not sure? Take the AI readiness scorecard</a>
         </article>
       </div>
-      <p class="service-note">Briefs are fixed-scope and priced above. Website design and AI integrations are custom-quoted after a short consult — no online checkout for these.</p>
+      <p class="service-note">Briefs are fixed-scope and priced on this page. Website design and AI integrations are custom-quoted after a free consult — no online checkout for these.</p>
     </section>
 
     <section id="about" aria-labelledby="about-title">
