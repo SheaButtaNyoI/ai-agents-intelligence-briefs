@@ -185,6 +185,9 @@
     .intro { display: none !important; }
     body::before, body::after { animation: none; }
   }
+  html:not(.intro-ready) .intro,
+  html:not(.intro-ready) .intro *,
+  html:not(.intro-ready) .intro-glow::before { animation-play-state: paused !important; }
   html.hold-intro .intro {
     display: flex !important;
     animation: none !important;
@@ -690,6 +693,9 @@
   .about-grid p { color: var(--muted); }
   .value-grid, .who-grid { grid-template-columns: 1fr 1fr; }
   .value, .who { padding: 16px 16px 18px; }
+  .contact-cards { margin-top: 22px; }
+  .contact-link { color: var(--red-hot); text-decoration: none; overflow-wrap: anywhere; }
+  .contact-link:hover { text-decoration: underline; }
   .who-grid { margin-top: 22px; }
   .faq-item { padding: 0; margin-bottom: 10px; }
   .faq-item summary {
@@ -817,6 +823,7 @@
   </div>
   <div class="intro-bar" aria-hidden="true"><span></span></div>
 </div>
+<script>(function(){var d=document.documentElement,m=document.querySelector("#intro .intro-mark"),t;function go(){clearTimeout(t);d.classList.add("intro-ready");}if(!m||(m.complete&&m.naturalWidth))go();else{m.addEventListener("load",go);m.addEventListener("error",go);t=setTimeout(go,2500);}})();</script>
 
 <header class="site-header">
   <a class="brand" href="#top"><img src="images/wordmark.png" alt="Project Crew AI" width="1100" height="246"></a>
@@ -835,6 +842,7 @@
     <a href="#about">About</a>
     <a href="#faq">FAQ</a>
     <a href="#request">Request</a>
+    <a href="#contact">Contact</a>
     <a class="nav-buy" href="https://buy.stripe.com/4gM7sL9HC08NgNJgKU4Ja01" target="_blank" rel="noopener">Buy now - $197 launch price</a>
   </nav>
   <a class="btn btn-primary btn-nav" href="https://buy.stripe.com/4gM7sL9HC08NgNJgKU4Ja01" target="_blank" rel="noopener">Buy now - $197 launch price</a>
@@ -890,10 +898,10 @@
       </div>
       <div class="topic-grid">
         <article class="topic reveal"><b>Multi-agent framework comparison</b></article>
-        <article class="topic reveal"><b>Agent platform landscape &amp; pricing</b></article>
+        <article class="topic reveal"><b>Agent platform landscape & pricing</b></article>
         <article class="topic reveal"><b>Voice agent infrastructure</b></article>
         <article class="topic reveal"><b>AI SDR / sales agent tools</b></article>
-        <article class="topic reveal"><b>Observability &amp; agent ops</b></article>
+        <article class="topic reveal"><b>Observability & agent ops</b></article>
         <article class="topic reveal"><b>Enterprise agent shortlists</b></article>
       </div>
     </section>
@@ -944,7 +952,7 @@
             <div><b>Scope</b><small>Fixed price</small></div>
           </div>
         </div>
-        <p class="pipe-log" id="pipe-log" aria-live="polite">&gt; Send a clear topic or decision question in the AI agents space.</p>
+        <p class="pipe-log" id="pipe-log" aria-live="polite">> Send a clear topic or decision question in the AI agents space.</p>
         <p class="pipe-note">Plays the four steps. It does not place an order. Delivered within 48 hours after payment is confirmed. Delivery-clock details and service terms require confirmation before an order is accepted.</p>
       </div>
       <aside class="claim-card" aria-labelledby="claim-title">
@@ -1070,9 +1078,9 @@
           <p>Customers bring one question or topic of their choice. A multi-agent investigative cell researches primary sources, stress-tests claims, and synthesizes only what is decision-relevant. You receive a focused, source-linked 5–8 page PDF. Delivered within 48 hours after payment is confirmed.</p>
           <p>Produced by a multi-agent investigative cell. Fixed-scope. Source-linked. Challenge-tested. No vendor copy, no filler.</p>
           <div class="who-grid">
-            <article class="who"><h3>Founders &amp; product leads</h3><p>You're about to commit engineering time to a framework or platform and want the counterpoints before the sprint, not after.</p></article>
-            <article class="who"><h3>Consultants &amp; agencies</h3><p>A client asked a question you can't spend three days on. You need a source-linked answer you can stand behind.</p></article>
-            <article class="who"><h3>Investors &amp; operators</h3><p>A vendor deck makes big claims. You want to know which ones the public record actually supports.</p></article>
+            <article class="who"><h3>Founders & product leads</h3><p>You're about to commit engineering time to a framework or platform and want the counterpoints before the sprint, not after.</p></article>
+            <article class="who"><h3>Consultants & agencies</h3><p>A client asked a question you can't spend three days on. You need a source-linked answer you can stand behind.</p></article>
+            <article class="who"><h3>Investors & operators</h3><p>A vendor deck makes big claims. You want to know which ones the public record actually supports.</p></article>
             <article class="who"><h3>Enterprise teams</h3><p>You need a shortlist that survives the first skeptical question in the room.</p></article>
           </div>
         </div>
@@ -1160,6 +1168,16 @@
       </div>
     </section>
 
+    <section id="contact" aria-labelledby="contact-title">
+      <p class="eyebrow">Get in touch</p>
+      <h2 class="section-title" id="contact-title">Contact</h2>
+      <p class="intro-copy">Questions about a brief, a quote, or an order? Reach Project Crew AI directly.</p>
+      <div class="value-grid contact-cards">
+        <article class="value"><div class="num">EMAIL</div><h3><a class="contact-link" href="mailto:aicellreport@projectcrewai.io">aicellreport@projectcrewai.io</a></h3><p>Best for brief requests, scoping questions, and order details.</p></article>
+        <article class="value"><div class="num">PHONE</div><h3><a class="contact-link" href="tel:+12562294068">(256) 229-4068</a></h3><p>Call to talk through a brief or a custom quote.</p></article>
+      </div>
+    </section>
+
     <footer>
       <img class="footer-mark" src="images/pa-mark.png" alt="Project Crew AI" width="64" height="64">
       Produced by a multi-agent investigative cell.<br>
@@ -1185,7 +1203,10 @@
     document.addEventListener("keydown", function (e) {
       if (e.key === "Escape") dismissIntro();
     });
-    if (!hold) window.setTimeout(dismissIntro, 1900);
+    if (!hold) (function waitReady() {
+      if (document.documentElement.classList.contains("intro-ready")) window.setTimeout(dismissIntro, 1900);
+      else window.setTimeout(waitReady, 50);
+    })();
   } else if (!hold) {
     dismissIntro();
   }
