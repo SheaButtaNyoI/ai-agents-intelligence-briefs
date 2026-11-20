@@ -4,13 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Project Crew AI — Decision-ready briefs on AI agents</title>
-<meta name="description" content="Decision-ready briefs on AI agents. One question, a source-linked 5–8 page PDF. $297 standard. First five briefs: $197 through Friday, December 4, 2026, whichever comes first, then $297.">
-<link rel="canonical" href="https://sheabuttanyoi.github.io/ai-agents-intelligence-briefs/">
+<meta name="description" content="Decision-ready briefs on AI agents. One question, a source-linked 5–8 page PDF. $297 standard. First five briefs: $197 or through Friday, December 4, 2026, whichever comes first, then $297.">
+<link rel="canonical" href="https://projectcrewai.io/">
 <meta name="theme-color" content="#000000">
 <meta property="og:title" content="Project Crew AI — Decision-ready briefs on AI agents">
-<meta property="og:description" content="One question. A source-linked 5–8 page PDF. $297 standard. First five briefs: $197 through Friday, December 4, 2026, whichever comes first, then $297.">
-<meta property="og:image" content="https://sheabuttanyoi.github.io/ai-agents-intelligence-briefs/logo.jpg">
-<meta property="og:url" content="https://sheabuttanyoi.github.io/ai-agents-intelligence-briefs/">
+<meta property="og:description" content="One question. A source-linked 5–8 page PDF. $297 standard. First five briefs: $197 or through Friday, December 4, 2026, whichever comes first, then $297.">
+<meta property="og:image" content="https://projectcrewai.io/logo.jpg">
+<meta property="og:url" content="https://projectcrewai.io/">
 <meta property="og:type" content="website">
 <link rel="icon" href="images/favicon.png" type="image/png">
 <link rel="preload" as="image" href="images/pa-mark.png">
@@ -996,7 +996,7 @@
       </div>
       <aside class="sample-price" aria-label="Brief pricing">
         <h3>Custom research brief</h3>
-        <p><strong>$297 standard.</strong> First five briefs: <strong>$197 through Friday, December 4, 2026</strong>, whichever comes first, then $297.</p>
+        <p><strong>$297 standard.</strong> First five briefs: <strong>$197 or through Friday, December 4, 2026</strong>, whichever comes first, then $297.</p>
         <p>One focused question, a 5–8-page PDF delivered within 48 hours after payment is confirmed. Delivery-clock details and service terms require confirmation before an order is accepted. No remaining-slot count is represented here.</p>
       </aside>
     </section>
@@ -1144,12 +1144,12 @@
             <textarea id="message" name="message" rows="4" placeholder="Any specific constraints, use case, or details..."></textarea>
           </div>
           <button type="submit" class="btn btn-primary">Submit request</button>
-          <p class="form-note"><strong>$297 standard.</strong> First five briefs: <strong>$197 through Friday, December 4, 2026</strong>, whichever comes first, then $297. Or email directly: <a href="mailto:aicellreport@projectcrewai.io">aicellreport@projectcrewai.io</a></p>
+          <p class="form-note"><strong>$297 standard.</strong> First five briefs: <strong>$197 or through Friday, December 4, 2026</strong>, whichever comes first, then $297. Or email directly: <a href="mailto:aicellreport@projectcrewai.io">aicellreport@projectcrewai.io</a></p>
         </form>
         <aside class="buy-card">
           <p class="eyebrow">One-time purchase</p>
           <h2>Buy a brief</h2>
-          <p><strong>$297 standard.</strong> First five briefs: <strong>$197 through Friday, December 4, 2026</strong>, whichever comes first, then $297.</p>
+          <p><strong>$297 standard.</strong> First five briefs: <strong>$197 or through Friday, December 4, 2026</strong>, whichever comes first, then $297.</p>
           <div class="stack">
             <a class="btn btn-primary" href="https://buy.stripe.com/4gM7sL9HC08NgNJgKU4Ja01" target="_blank" rel="noopener">Buy now - $197 launch price</a>
             <a class="btn btn-ghost" href="https://www.paypal.com/paypalme/buttasbest/297" target="_blank" rel="noopener">PayPal — $297 standard</a>
@@ -1314,6 +1314,9 @@
 
   document.getElementById("brief-form").addEventListener("submit", function (event) {
     event.preventDefault();
+    var form = this;
+    var button = form.querySelector('button[type="submit"]');
+    if (button && button.getAttribute("aria-busy") === "true") return;
     var name = document.getElementById("name").value.trim();
     var email = document.getElementById("email").value.trim();
     var topic = document.getElementById("topic").value.trim();
@@ -1325,11 +1328,49 @@
       "",
       message,
       "",
-      "Pricing: $297 standard. First five briefs: $197 through Friday, December 4, 2026, whichever comes first, then $297."
+      "Pricing: $297 standard. First five briefs: $197 or through Friday, December 4, 2026, whichever comes first, then $297."
     ].join("\n");
-    window.location.href = "mailto:aicellreport@projectcrewai.io?subject="
-      + encodeURIComponent("Brief request: " + topic)
-      + "&body=" + encodeURIComponent(body);
+    function openMailto() {
+      window.location.href = "mailto:aicellreport@projectcrewai.io?subject="
+        + encodeURIComponent("Brief request: " + topic)
+        + "&body=" + encodeURIComponent(body);
+    }
+    function setSubmitStatus(text) {
+      var statusEl = document.getElementById("submit-status");
+      if (!statusEl) {
+        statusEl = document.createElement("p");
+        statusEl.id = "submit-status";
+        statusEl.setAttribute("role", "status");
+        button.parentNode.appendChild(statusEl);
+      }
+      statusEl.textContent = text;
+    }
+    var payload = {
+      name: name,
+      email: email,
+      topic: topic,
+      message: message,
+      src: "request-brief",
+      _subject: "Brief request"
+    };
+    if (button) button.setAttribute("aria-busy", "true");
+    fetch("https://formspree.io/f/xeagzybr", {
+      method: "POST",
+      headers: {
+        "Accept": "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(payload)
+    }).then(function (res) {
+      if (!res.ok) throw new Error("submit failed");
+      return res.json().catch(function () { return {}; });
+    }).then(function () {
+      setSubmitStatus("Sent.");
+    }).catch(function () {
+      openMailto();
+    }).then(function () {
+      if (button) button.removeAttribute("aria-busy");
+    });
   });
 })();
 </script>

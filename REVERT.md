@@ -25,7 +25,7 @@ git push origin main
 
 ## What was left alone
 
-- `/backup/` is the earlier landing page and was not edited.
+- The earlier landing page that lived at `/backup/` is recoverable from git history at commit cdba62ab1f8f392a8e1a7e55c0ccd963ca9026e4, the last commit that contained it.
 - `logo.jpg` stays at the repo root.
 - `AI_Agents_Intelligence_Brief_Sample.pdf` and `ai-and-2027.pdf` stay at the repo root.
 
