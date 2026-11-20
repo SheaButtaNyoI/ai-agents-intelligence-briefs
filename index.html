@@ -632,6 +632,55 @@
   .hero-price { margin-top: 22px; color: #fff; font-size: 18px; max-width: 68ch; }
   .hero-price strong { color: #fff; text-shadow: 0 0 18px rgba(225,6,0,.55); }
   .hero-italic { margin: 18px 0 0; max-width: 62ch; color: var(--muted); }
+  .text-link { display: inline-block; margin-top: 14px; color: var(--red-hot); font-family: Rajdhani, "Segoe UI", sans-serif; font-weight: 700; font-size: 17px; text-decoration: none; }
+  .text-link:hover { color: #fff; }
+  section.choice-strip, section.proof-strip { padding: 22px 0 0; }
+  .strip-box {
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: rgba(255,255,255,.035);
+    padding: 22px;
+  }
+  .strip-box h2 { margin: 0 0 8px; font-family: Rajdhani, "Segoe UI", sans-serif; font-size: clamp(26px, 3vw, 34px); letter-spacing: -.02em; }
+  .strip-box > p { margin: 0; color: var(--muted); max-width: 68ch; }
+  .choice-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 16px; }
+  .proof-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 0;
+    border-top: 1px solid var(--line);
+    margin-top: 14px;
+  }
+  .proof-row + .proof-row { margin-top: 0; }
+  .proof-row span { font-family: Rajdhani, "Segoe UI", sans-serif; font-weight: 700; font-size: 18px; }
+  .proof-row a {
+    flex-shrink: 0;
+    color: #000;
+    background: #fff;
+    text-decoration: none;
+    font-family: Rajdhani, "Segoe UI", sans-serif;
+    font-weight: 700;
+    padding: 8px 14px;
+    border-radius: 8px;
+  }
+  .proof-row a:hover { box-shadow: 0 0 22px rgba(225,6,0,.45); }
+  .strip-box > .proof-close { margin: 14px 0 0; color: var(--muted); }
+  .claim-list .num { flex-shrink: 0; }
+  .process-pair { display: grid; grid-template-columns: 1.15fr .85fr; gap: 16px; align-items: start; }
+  .claim-card {
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 22px;
+    background: rgba(255,255,255,.035);
+  }
+  .claim-card h2 { margin: 0 0 16px; font-family: Rajdhani, "Segoe UI", sans-serif; font-size: clamp(26px, 3vw, 34px); letter-spacing: -.02em; line-height: 1.15; }
+  .claim-list { list-style: none; margin: 0; padding: 0; }
+  .claim-list li { display: flex; gap: 12px; margin-bottom: 14px; color: var(--muted); }
+  .claim-list li:last-child { margin-bottom: 0; }
+  .about-grid .position-line { color: #fff; margin-top: 0; }
+  .about-grid .position-line strong { color: #fff; }
   .about-grid {
     display: grid;
     grid-template-columns: 1.15fr .85fr;
@@ -727,7 +776,7 @@
     .nav-links a.nav-buy { display: block; margin-top: 8px; background: #fff; color: #000; text-align: center; border-radius: 10px; font-family: Rajdhani, "Segoe UI", sans-serif; font-weight: 700; letter-spacing: .02em; text-transform: none; }
     .btn-nav { display: none; }
     .metrics, .topic-grid, .deliver-grid, .sample-grid { grid-template-columns: 1fr 1fr; }
-    .about-grid, .contact-grid, .pipe-track { grid-template-columns: 1fr; }
+    .about-grid, .contact-grid, .pipe-track, .process-pair { grid-template-columns: 1fr; }
     .pipe-track { gap: 0; }
     .connector { width: 2px; height: 22px; margin: 0 0 0 27px; }
     .step { display: grid; grid-template-columns: 56px 1fr; text-align: left; gap: 12px; align-items: center; }
@@ -740,7 +789,8 @@
     .hero h1 { font-size: 28px; max-width: none; }
     .metrics, .topic-grid, .deliver-grid, .sample-grid, .service-grid, .who-grid, .value-grid, .form-row { grid-template-columns: 1fr; }
     .metric { border-right: 0; border-bottom: 1px solid var(--line); }
-    .hero-actions .btn, .buy-card .btn, .service-card .btn { width: 100%; }
+    .hero-actions .btn, .buy-card .btn, .service-card .btn, .choice-actions .btn { width: 100%; }
+    .proof-row { flex-direction: column; align-items: flex-start; }
     .site-header { padding: 0 14px; }
     section { padding: 64px 0; }
   }
@@ -798,12 +848,40 @@
       <p class="lede">A multi-agent investigative cell researches primary sources, stress-tests claims, and delivers a fixed-scope 5–8 page PDF within 48 hours after payment is confirmed. One question. Your choice.</p>
       <p class="hero-price"><strong>$197 launch</strong> · First five briefs or through Friday, Dec 4, 2026, whichever comes first, then $297. One-time purchase.</p>
       <div class="hero-actions">
-        <a class="btn btn-primary" href="mailto:aicellreport@projectcrewai.io?subject=Free%20scoping%20note%20request">Get a free scoping note</a>
+        <a class="btn btn-primary" href="scorecards/brief.html">Are you ready for a brief? Take the 2-minute scorecard</a>
         <a class="btn btn-ghost" href="#samples">See a sample brief</a>
-        <a class="btn btn-ghost" href="scorecards/brief.html">Are you ready? Take the scorecard</a>
       </div>
+      <p><a class="text-link" href="mailto:aicellreport@projectcrewai.io?subject=Free%20scoping%20note%20request">Already know your question? Get a free scoping note →</a></p>
       <p class="hero-italic"><em>The decision is happening either way. Go in with the sources already stress-tested.</em></p>
     </header>
+
+    <section class="choice-strip" aria-labelledby="which-title">
+      <div class="strip-box">
+        <h2 id="which-title">Not sure which one you need?</h2>
+        <p>Answer 10 quick questions and you'll know whether you're ready, what's missing, and the best next step. No call, no checkout.</p>
+        <div class="choice-actions">
+          <a class="btn btn-ghost" href="scorecards/brief.html">Research brief scorecard</a>
+          <a class="btn btn-ghost" href="scorecards/website.html">Website scorecard</a>
+          <a class="btn btn-ghost" href="scorecards/ai.html">AI integration scorecard</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="proof-strip" aria-labelledby="proof-title">
+      <div class="strip-box">
+        <h2 id="proof-title">See exactly what you'd get.</h2>
+        <p>Two real sample briefs, every claim linked to its source.</p>
+        <div class="proof-row">
+          <span>Multi-Agent Frameworks · 5 pages · 13 sources</span>
+          <a href="AI_Agents_Intelligence_Brief_Sample.pdf">Open PDF</a>
+        </div>
+        <div class="proof-row">
+          <span>AI and 2027 · 7 pages · 26 sources</span>
+          <a href="ai-and-2027.pdf">Open PDF</a>
+        </div>
+        <p class="proof-close"><em>We publish what we removed, too: unsupported figures get cut, not rounded up.</em></p>
+      </div>
+    </section>
 
     <section id="topics" aria-labelledby="topics-title">
       <div class="block-head">
@@ -838,6 +916,7 @@
     </section>
 
     <section id="process" aria-labelledby="process-title">
+      <div class="process-pair">
       <div class="pipe">
         <div class="pipe-top">
           <p class="eyebrow">How it works</p>
@@ -867,6 +946,16 @@
         </div>
         <p class="pipe-log" id="pipe-log" aria-live="polite">&gt; Send a clear topic or decision question in the AI agents space.</p>
         <p class="pipe-note">Plays the four steps. It does not place an order. Delivered within 48 hours after payment is confirmed. Delivery-clock details and service terms require confirmation before an order is accepted.</p>
+      </div>
+      <aside class="claim-card" aria-labelledby="claim-title">
+        <h2 id="claim-title">How a claim makes it into your brief</h2>
+        <ol class="claim-list">
+          <li><span class="num">01</span><span>Found in a public primary source (docs, pricing page, filing, credible reporting).</span></li>
+          <li><span class="num">02</span><span>Challenged by a separate reviewer looking for the strongest counterpoint.</span></li>
+          <li><span class="num">03</span><span>Kept, qualified, or cut. If it can't be sourced, it doesn't ship.</span></li>
+          <li><span class="num">04</span><span>Linked, so you can check it yourself.</span></li>
+        </ol>
+      </aside>
       </div>
     </section>
 
@@ -943,7 +1032,7 @@
           <p class="turnaround">Turnaround: 10–14 calendar days after quote acceptance, deposit, and assets received (logo, photos, copy draft, domain access).</p>
           <p class="service-price">Custom quote</p>
           <a class="btn btn-primary" href="mailto:aicellreport@projectcrewai.io?subject=Website%20design%20quote">Request a free consult</a>
-          <a class="score-link" href="scorecards/website.html">Not sure? Take the website readiness scorecard</a>
+          <a class="score-link" href="scorecards/website.html">Not sure you're ready? Take the 2-minute website scorecard first.</a>
         </article>
         <article class="service-card" id="ai-integrations">
           <h3>Custom AI integrations</h3>
@@ -966,7 +1055,7 @@
           <p class="turnaround">Turnaround: 14–21 calendar days after quote acceptance, deposit, tool access granted, and sample data provided.</p>
           <p class="service-price">Custom quote</p>
           <a class="btn btn-primary" href="mailto:aicellreport@projectcrewai.io?subject=AI%20integration%20quote">Request a free consult</a>
-          <a class="score-link" href="scorecards/ai.html">Not sure? Take the AI readiness scorecard</a>
+          <a class="score-link" href="scorecards/ai.html">Not sure which workflow to start with? Take the 2-minute AI readiness scorecard first.</a>
         </article>
       </div>
       <p class="service-note">Briefs are fixed-scope and priced on this page. Website design and AI integrations are custom-quoted after a free consult — no online checkout for these.</p>
@@ -977,13 +1066,14 @@
         <div>
           <p class="eyebrow">Who we are</p>
           <h2 class="section-title" id="about-title">A brief for one decision</h2>
+          <p class="position-line"><strong>For the person who has to make the call.</strong> Not a market report for everyone; one answer for your decision, with the counterpoints left in.</p>
           <p>Customers bring one question or topic of their choice. A multi-agent investigative cell researches primary sources, stress-tests claims, and synthesizes only what is decision-relevant. You receive a focused, source-linked 5–8 page PDF. Delivered within 48 hours after payment is confirmed.</p>
           <p>Produced by a multi-agent investigative cell. Fixed-scope. Source-linked. Challenge-tested. No vendor copy, no filler.</p>
           <div class="who-grid">
-            <article class="who"><h3>Founders &amp; product leads</h3><p>Choosing a framework or platform before committing engineering time.</p></article>
-            <article class="who"><h3>Consultants &amp; agencies</h3><p>Needing a client-ready brief without days of manual research.</p></article>
-            <article class="who"><h3>Investors &amp; operators</h3><p>Evaluating agent stacks, vendor claims, or near-term market shifts.</p></article>
-            <article class="who"><h3>Enterprise teams</h3><p>Building shortlists or assessing production readiness of agent tools.</p></article>
+            <article class="who"><h3>Founders &amp; product leads</h3><p>You're about to commit engineering time to a framework or platform and want the counterpoints before the sprint, not after.</p></article>
+            <article class="who"><h3>Consultants &amp; agencies</h3><p>A client asked a question you can't spend three days on. You need a source-linked answer you can stand behind.</p></article>
+            <article class="who"><h3>Investors &amp; operators</h3><p>A vendor deck makes big claims. You want to know which ones the public record actually supports.</p></article>
+            <article class="who"><h3>Enterprise teams</h3><p>You need a shortlist that survives the first skeptical question in the room.</p></article>
           </div>
         </div>
         <div>
