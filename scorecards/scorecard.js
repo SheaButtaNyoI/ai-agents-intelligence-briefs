@@ -105,9 +105,52 @@
     results.scrollIntoView({ block: "start" });
   });
 
+  function mailtoHref(lines) {
+    return "mailto:aicellreport@projectcrewai.io?subject="
+      + encodeURIComponent(cfg.subject)
+      + "&body=" + encodeURIComponent(lines.join("\n"));
+  }
+
+  function openMailto(anchor, lines) {
+    var href = mailtoHref(lines);
+    anchor.href = href;
+    window.location.href = href;
+  }
+
+  function setSubmitStatus(text) {
+    var statusEl = document.getElementById("submit-status");
+    if (!statusEl) {
+      statusEl = document.createElement("p");
+      statusEl.id = "submit-status";
+      statusEl.setAttribute("role", "status");
+      document.getElementById("mailto-cta").parentNode.appendChild(statusEl);
+    }
+    statusEl.textContent = text;
+  }
+
+  function payloadFromResults(answers, followupValues, lines) {
+    var payload = {
+      email: results.dataset.email,
+      score: results.dataset.score,
+      band: results.dataset.band,
+      src: cfg.src,
+      _subject: cfg.subject,
+      answers: answers.join(", "),
+      message: lines.join("\n")
+    };
+    cfg.questions.forEach(function (question, index) {
+      payload["q" + (index + 1)] = answers[index];
+    });
+    cfg.followups.forEach(function (label, index) {
+      payload["followup_" + (index + 1)] = followupValues[index];
+    });
+    return payload;
+  }
+
   document.getElementById("mailto-cta").addEventListener("click", function (event) {
     event.preventDefault();
     if (results.hidden) return;
+    if (this.getAttribute("aria-busy") === "true") return;
     var answers = JSON.parse(results.dataset.answers);
     var lines = [
       "Email: " + results.dataset.email,
@@ -122,16 +165,38 @@
       lines.push(answers[index]);
       lines.push("");
     });
+    var followupValues = [];
     cfg.followups.forEach(function (label, index) {
       var field = document.getElementById("followup-" + index);
+      var value = (field && field.value.trim()) || "";
+      followupValues.push(value);
       lines.push(label);
-      lines.push((field && field.value.trim()) || "");
+      lines.push(value);
       lines.push("");
     });
-    var href = "mailto:aicellreport@projectcrewai.io?subject="
-      + encodeURIComponent(cfg.subject)
-      + "&body=" + encodeURIComponent(lines.join("\n"));
-    this.href = href;
-    window.location.href = href;
+    var anchor = this;
+    if (!cfg.endpoint) {
+      openMailto(anchor, lines);
+      return;
+    }
+    var payload = payloadFromResults(answers, followupValues, lines);
+    anchor.setAttribute("aria-busy", "true");
+    fetch(cfg.endpoint, {
+      method: "POST",
+      headers: {
+        "Accept": "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(payload)
+    }).then(function (res) {
+      if (!res.ok) throw new Error("submit failed");
+      return res.json().catch(function () { return {}; });
+    }).then(function () {
+      setSubmitStatus("Sent.");
+    }).catch(function () {
+      openMailto(anchor, lines);
+    }).then(function () {
+      anchor.removeAttribute("aria-busy");
+    });
   });
 })();
